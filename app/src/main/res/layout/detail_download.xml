@@ -1,18 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_margin="25dp">
 
     <TextView
+        android:id="@+id/tv_judul_download_episode"
+        android:textSize="30sp"
+        android:fontFamily="serif-monospace"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Tsubatsa"/>
 
     <ImageView
         android:id="@+id/banner_episode"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
+        android:layout_below="@id/tv_judul_download_episode"
         android:layout_height="180dp"
         android:scaleType="centerCrop"
         android:src="@drawable/banner_tsubatsa"/>
 
+    <TextView
+        android:id="@+id/tv_judul_episode_download"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Episode 1"
+        android:layout_below="@id/banner_episode"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:fontFamily="serif-monospace"
+        android:textColor="@color/colorBlack" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/Linier"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_judul_episode_download"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deskripsi"/>
+
+        <TextView
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DOWNLOAD"
+            android:fontFamily="serif-monospace"
+            android:textStyle="bold"
+            android:textSize="25sp"/>
+
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/Linier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
