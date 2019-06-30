@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    tools:context=".SignupActivity">
     <TextView
         android:id="@+id/tv_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="serif-monospace"
         android:text="SIGN UP"
         android:textColor="@color/colorBlack"
         android:textSize="35sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_below="@+id/tv_signup">
 
         <EditText
             android:id="@+id/edt_name"
@@ -31,7 +35,7 @@
             android:hint="Name" />
 
         <EditText
-            android:id="@+id/edt_TTL"
+            android:id="@+id/edt_ttl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -47,6 +51,14 @@
             android:layout_marginTop="25dp"
             android:layout_marginRight="25dp"
             android:hint="Email" />
+        <EditText
+            android:id="@+id/edt_passSignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:hint="Password" />
 
         <Button
             android:id="@+id/btn_signup"
@@ -61,20 +73,46 @@
             android:textSize="26dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_daftardisini"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="25dp"
-            android:fontFamily="serif-monospace"
-            android:text="already registered? Login here"
-            android:textAlignment="center"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp" />
+            android:layout_marginRight="25dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="serif-monospace"
+                android:text="@string/already_registered"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:layout_weight="0.4"/>
+            <Button
+                android:id="@+id/btn_gotologin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login_here"
+                android:layout_weight="0.6"
+                android:background="#00FFFFFF"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:textStyle="italic|bold"
+                android:fontFamily="serif-monospace"
+                android:textAllCaps="false"
+                />
+        </LinearLayout>
 
 
     </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center|bottom"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>
