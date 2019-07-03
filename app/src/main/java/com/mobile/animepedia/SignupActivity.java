@@ -32,7 +32,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     private Button btnGotoLogin, btnSignup;
     private FirebaseAuth auth;
     private ProgressBar progressBar;
-    final String urlAdd = "http://192.168.43.18/animepedia/insert_user.php";
+    final String urlAdd = "http://cucusadewa0294belajar.000webhostapp.com/animepedia/api/user/insert_user.php";
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
@@ -70,7 +70,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()) {
             case R.id.btn_signup:
                 Toast.makeText(this, "Ok", Toast.LENGTH_SHORT).show();
-                Signup();
+//                Signup();
                 Adduser();
 
                 break;
@@ -178,9 +178,9 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 // jika id kosong maka simpan, jika id ada nilainya maka update
 
                 params.put("nama", nama);
-                params.put("tgl_lahir", tgl_lahir);
+                params.put("ttl", tgl_lahir);
                 params.put("email", email);
-                params.put("pwd", pwd);
+                params.put("password", pwd);
 
 
                 return params;
