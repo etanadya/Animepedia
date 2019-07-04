@@ -4,19 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupActivity">
+    tools:context=".SignupActivity"
+    android:background="@drawable/gradient_satu">
+
     <TextView
         android:id="@+id/tv_signup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="65dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="100dp"
+        android:textAlignment="center"
         android:fontFamily="serif-monospace"
+        android:background="@drawable/bagraund_putih"
         android:text="SIGN UP"
         android:textColor="@color/colorBlack"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        />
+        android:textSize="50sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,6 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
+            android:layout_marginTop="50dp"
+            android:inputType="textPersonName"
             android:hint="Name" />
 
         <EditText
@@ -41,6 +48,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="25dp"
             android:layout_marginRight="25dp"
+            android:inputType="date"
             android:hint="Tempat, Tanggal Lahir" />
 
         <EditText
@@ -50,6 +58,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="25dp"
             android:layout_marginRight="25dp"
+            android:inputType="textEmailAddress"
             android:hint="Email" />
         <EditText
             android:id="@+id/edt_passSignup"
@@ -58,6 +67,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="25dp"
             android:layout_marginRight="25dp"
+            android:inputType="textPassword"
             android:hint="Password" />
 
         <Button
@@ -66,6 +76,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="25dp"
+            android:background="@drawable/button_shape"
+            android:textColor="@color/colorWhite"
             android:layout_marginRight="25dp"
             android:elevation="5dp"
             android:fontFamily="serif-monospace"
@@ -84,7 +96,6 @@
                 android:id="@+id/tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:fontFamily="serif-monospace"
                 android:text="@string/already_registered"
                 android:textAlignment="center"
