@@ -18,17 +18,21 @@ import com.mobile.animepedia.R;
 import java.util.ArrayList;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
-    private ArrayList<AnimepediaItem> animepediaItems;
+    private ArrayList<AnimepediaItem> animepediaItem = new ArrayList<>();
     private Context context;
 
+    public ArrayList<AnimepediaItem> getAnimepediaItem() {
+        return animepediaItem;
+    }
+
+    public void setAnimepediaItem(ArrayList<AnimepediaItem> animepediaItem) {
+        this.animepediaItem = animepediaItem;
+    }
 
     public HomeAdapter(Context context) {
         this.context = context;
     }
 
-    public ArrayList<AnimepediaItem> getAnimepediaItems() {
-        return animepediaItems;
-    }
 
     public Context getContext() {
         return context;
@@ -38,9 +42,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         this.context = context;
     }
 
-    public void setAnimepediaItems(ArrayList<AnimepediaItem> animepediaItems) {
-        this.animepediaItems = animepediaItems;
-    }
+
 
     @NonNull
     @Override
@@ -49,16 +51,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         return new HomeViewHolder(view);
     }
 
+
+
     @Override
     public void onBindViewHolder(@NonNull HomeViewHolder homeViewHolder, int i) {
-        Glide.with(getContext()).load(animepediaItems.get(i).getGambar()).into(homeViewHolder.imgPhoto);
-        homeViewHolder.tvJudul.setText(animepediaItems.get(i).getJudul());
-        homeViewHolder.tvHari.setText(animepediaItems.get(i).getHari_rilis());
+        Glide.with(getContext()).load(getAnimepediaItem().get(i).getGambar()).into(homeViewHolder.imgPhoto);
+        homeViewHolder.tvJudul.setText(getAnimepediaItem().get(i).getJudul());
+        homeViewHolder.tvHari.setText(getAnimepediaItem().get(i).getHari_rilis());
     }
 
     @Override
     public int getItemCount() {
-        return getAnimepediaItems().size();
+        return getAnimepediaItem().size();
     }
 
     public class HomeViewHolder extends RecyclerView.ViewHolder {

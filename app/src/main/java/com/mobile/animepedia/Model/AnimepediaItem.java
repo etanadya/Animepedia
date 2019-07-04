@@ -3,7 +3,7 @@ package com.mobile.animepedia.Model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class AnimepediaItem implements Parcelable {
+public class AnimepediaItem implements Parcelable  {
     String id, judul,genre,hari_rilis,gambar,video,deskripsi;
 
     public AnimepediaItem(String id, String judul, String genre, String hari_rilis, String gambar, String video, String deskripsi) {

@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     public void showAnimepedia(ArrayList<AnimepediaItem> animepediaItems) {
 
-        homeAdapter.setAnimepediaItems(animepediaItems);
+        homeAdapter.setAnimepediaItem(animepediaItems);
         rvHome.setAdapter(homeAdapter);
         homeAdapter.notifyDataSetChanged();
 
