@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:layout_margin="25dp">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
     <TextView
         android:id="@+id/tv_judul_detail"
         android:layout_width="match_parent"
@@ -25,11 +27,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/banner_detail_anime"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="15dp"
+        tools:listitem="@layout/item_list_detail_anime"
+        android:id="@+id/rv_listdetail">
 
     </android.support.v7.widget.RecyclerView>
-
-
-
 
 </RelativeLayout>
