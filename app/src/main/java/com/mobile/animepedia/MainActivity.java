@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,6 +16,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.mobile.animepedia.Adapter.HomeAdapter;
 import com.mobile.animepedia.Api.AnimepediaApi;
 import com.mobile.animepedia.Model.AnimepediaItem;
+import com.mobile.animepedia.Model.ListAnimeItem;
+import com.mobile.animepedia.OnclickLibrary.ItemClickSupport;
 import com.mobile.animepedia.Presenter.HomePresenter;
 import com.mobile.animepedia.View.MainView;
 
@@ -50,11 +53,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
             }
         };
 
-//        LinearLayoutManager manager = new LinearLayoutManager(this);
-//        rvHome.setLayoutManager(manager);
-//        rvHome.setHasFixedSize(true);
-//        homeAdapter = new HomeAdapter(this);
-//        rvHome.setAdapter(homeAdapter);
         tampilAnimepedia();
 
     }
@@ -106,11 +104,34 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     @Override
-    public void showAnimepedia(ArrayList<AnimepediaItem> animepediaItems) {
+    public void showAnimepedia(final ArrayList<AnimepediaItem> animepediaItems) {
 
         homeAdapter.setAnimepediaItem(animepediaItems);
         rvHome.setAdapter(homeAdapter);
         homeAdapter.notifyDataSetChanged();
+        ItemClickSupport.addTo(rvHome).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                    Intent intentDetail = new Intent(MainActivity.this, DetailActivity.class);
+                    AnimepediaItem animepediaItem = new AnimepediaItem(
+                            animepediaItems.get(position).getId(),
+                            animepediaItems.get(position).getJudul(),
+                            animepediaItems.get(position).getGenre(),
+                            animepediaItems.get(position).getHari_rilis(),
+                            animepediaItems.get(position).getGambar(),
+                            animepediaItems.get(position).getVideo(),
+                            animepediaItems.get(position).getDeskripsi()
+                    );
+
+                    intentDetail.putExtra("animepedia", animepediaItem);
+                    startActivity(intentDetail);
+            }
+        });
+
+    }
+
+    @Override
+    public void showListDetail(ArrayList<ListAnimeItem> listAnimeItems) {
 
     }
 }
