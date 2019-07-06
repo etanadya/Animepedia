@@ -2,6 +2,7 @@ package com.mobile.animepedia;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -28,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText edtEmailSignup, edtPasswordSignup, edtNameSignup, edtTglLahir;
+    TextInputLayout edtEmailSignup, edtPasswordSignup, edtNameSignup, edtTglLahir;
     private Button btnGotoLogin, btnSignup;
     private FirebaseAuth auth;
     private ProgressBar progressBar;
@@ -83,8 +84,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     public void Signup() {
-        String email = edtEmailSignup.getText().toString().trim();
-        String password = edtPasswordSignup.getText().toString().trim();
+        String email = edtEmailSignup.getEditText().getText().toString().trim();
+        String password = edtPasswordSignup.getEditText().getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
@@ -131,10 +132,10 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
     public void Adduser() {
 
-        final String nama = edtNameSignup.getText().toString().trim();
-        final String tgl_lahir = edtTglLahir.getText().toString().trim();
-        final String email = edtEmailSignup.getText().toString().trim();
-        final String pwd = edtPasswordSignup.getText().toString().trim();
+        final String nama = edtNameSignup.getEditText().getText().toString().trim();
+        final String tgl_lahir = edtTglLahir.getEditText().getText().toString().trim();
+        final String email = edtEmailSignup.getEditText().getText().toString().trim();
+        final String pwd = edtPasswordSignup.getEditText().getText().toString().trim();
 
         StringRequest strReq = new StringRequest(Request.Method.POST, urlAdd, new Response.Listener<String>() {
 
