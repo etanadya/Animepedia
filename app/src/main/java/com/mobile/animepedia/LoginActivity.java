@@ -2,6 +2,7 @@ package com.mobile.animepedia;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,7 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    private EditText edtEmailLogin,edtPasswordLogin;
+    private TextInputLayout edtEmailLogin,edtPasswordLogin;
     private Button btnLogin, btnGotoSigniup;
     private FirebaseAuth auth;
     private ProgressBar progressBar;
@@ -58,9 +59,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
     public void Signin(){
-        String email = edtEmailLogin.getText().toString();
-        final String password = edtPasswordLogin.getText().toString();
-
+        String email = edtEmailLogin.getEditText().getText().toString();
+        final String password = edtPasswordLogin.getEditText().getText().toString();
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
             return;
