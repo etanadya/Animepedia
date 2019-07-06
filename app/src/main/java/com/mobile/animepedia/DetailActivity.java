@@ -41,7 +41,7 @@ public class DetailActivity extends AppCompatActivity implements MainView {
         tvJudul.setText(animepediaItem.getJudul());
 
         TampilDetailList();
-        listAnimePresenter.LoadItemDetail("boruto");
+        listAnimePresenter.LoadItemDetail(animepediaItem.getJudul());
     }
 
     private void TampilDetailList() {

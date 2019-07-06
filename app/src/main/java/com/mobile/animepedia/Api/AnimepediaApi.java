@@ -9,8 +9,8 @@ public class AnimepediaApi {
     }
 
     public String getListDetail(String string) {
-        String listDetail = "judul/_";
-        String List = BuildConfig.SERVER + listDetail + string + ".php";
+        String listDetail = "serach/search_animepedia.php?search=";
+        String List = BuildConfig.SERVER + listDetail + string ;
 
         return List;
     }

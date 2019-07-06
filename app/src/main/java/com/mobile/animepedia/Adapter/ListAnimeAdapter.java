@@ -43,7 +43,7 @@ public class ListAnimeAdapter extends RecyclerView.Adapter<ListAnimeAdapter.List
     @Override
     public void onBindViewHolder(@NonNull ListAnimeViewHolder listAnimeViewHolder, int i) {
         Glide.with(context).load(getAnimeItems().get(i).getGambar()).into(listAnimeViewHolder.cimgImage);
-        listAnimeViewHolder.tvJudulList.setText(getAnimeItems().get(i).getSub_judul());
+        listAnimeViewHolder.tvJudulList.setText(getAnimeItems().get(i).getEpisode());
 
     }
 

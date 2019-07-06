@@ -62,34 +62,37 @@ public class ListAnimePresenter {
     public void setContext(Context context) {
         this.context = context;
     }
+
     public void LoadItemDetail(String string) {
         String URL = animepediaApi.getListDetail(string);
         final ArrayList<ListAnimeItem> listAnimeItems = new ArrayList<>();
 
-        StringRequest stringRequest = new StringRequest( Request.Method.GET, URL, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
-                    JSONObject object = new JSONObject( response );
-                    JSONArray listAnimepediaArray = object.getJSONArray( "_boruto" );
+                    JSONObject object = new JSONObject(response);
+                    JSONArray listAnimepediaArray = object.getJSONArray("pencarian");
                     for (int i = 0; i < listAnimepediaArray.length(); i++) {
-                        JSONObject listAnimepediaObject = listAnimepediaArray.getJSONObject( i );
+                        JSONObject listAnimepediaObject = listAnimepediaArray.getJSONObject(i);
                         ListAnimeItem listAnimeItem = new ListAnimeItem(
-                                listAnimepediaObject.getString( "judul" ),
+                                listAnimepediaObject.getString("id"),
+                                listAnimepediaObject.getString("judul"),
                                 listAnimepediaObject.getString("sub_judul"),
-                                listAnimepediaObject.getString( "genre" ),
-                                listAnimepediaObject.getString( "hari_rilis" ),
-                                listAnimepediaObject.getString( "gambar" ),
-                                listAnimepediaObject.getString( "video" ),
-                                listAnimepediaObject.getString( "download" )
+                                listAnimepediaObject.getString("genre"),
+                                listAnimepediaObject.getString("hari_rilis"),
+                                listAnimepediaObject.getString("gambar"),
+                                listAnimepediaObject.getString("video"),
+                                listAnimepediaObject.getString("banner"),
+                                listAnimepediaObject.getString("episode")
                         );
 
-                        listAnimeItems.add( listAnimeItem );
+                        listAnimeItems.add(listAnimeItem);
 
                     }
 
 
-                    view.showListDetail( listAnimeItems );
+                    view.showListDetail(listAnimeItems);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -99,10 +102,10 @@ public class ListAnimePresenter {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText( context, "Error", Toast.LENGTH_SHORT ).show();
+                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
             }
-        } );
-        RequestQueue requestQueue = Volley.newRequestQueue( getContext());
-        requestQueue.add( stringRequest );
+        });
+        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+        requestQueue.add(stringRequest);
     }
 }
