@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "920567265946",
+    "firebase_url": "https://animepedia-f45ec.firebaseio.com",
+    "project_id": "animepedia-f45ec",
+    "storage_bucket": "animepedia-f45ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920567265946:android:38f52fe30e69f314",
+        "android_client_info": {
+          "package_name": "com.mobile.animepedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920567265946-evc290hanbs70igt9jui8lfpepolg76s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobile.animepedia",
+            "certificate_hash": "46253221eff39ef4e415897056532b5920f528b6"
+          }
+        },
+        {
+          "client_id": "920567265946-o9hki8846pkb4mt2ppgns6j8tie7nshu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYdL3C4BkWZyg4wRl2UJ_4i7dtVzU6q74"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920567265946-o9hki8846pkb4mt2ppgns6j8tie7nshu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
