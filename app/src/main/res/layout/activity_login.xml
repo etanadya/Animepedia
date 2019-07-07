@@ -13,14 +13,14 @@
         android:layout_height="65dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="45dp"
         android:layout_marginRight="25sp"
         android:background="@drawable/bg_palsu"
         android:fontFamily="serif-monospace"
         android:text="LOGIN"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
-        android:textSize="50sp"
+        android:textSize="45sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -49,7 +49,7 @@
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/edt_password"
-            android:layout_width="400dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHighlight="@color/colorWhite"
             android:textColorHint="@color/colorBlack"
@@ -98,7 +98,7 @@
                 android:text="@string/are_you_registered"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/btn_gotoregister"
@@ -110,7 +110,7 @@
                 android:text="@string/register_here"
                 android:textAllCaps="false"
                 android:textColor="@color/colorBlack"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textStyle="italic|bold" />
         </LinearLayout>
 

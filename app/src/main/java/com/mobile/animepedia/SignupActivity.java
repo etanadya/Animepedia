@@ -29,7 +29,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
-    TextInputLayout edtEmailSignup, edtPasswordSignup, edtNameSignup, edtTglLahir;
+    TextInputLayout edtEmailSignup, edtPasswordSignup, edtNameSignup;
+    EditText edtTglLahir, edtTempatLahir;
     private Button btnGotoLogin, btnSignup;
     private FirebaseAuth auth;
     private ProgressBar progressBar;
@@ -50,6 +51,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         textView = findViewById(R.id.tv);
 
         edtNameSignup = findViewById(R.id.edt_name);
+        edtTempatLahir = findViewById(R.id.edt_tempatSignup);
         edtTglLahir = findViewById(R.id.edt_ttl);
         edtEmailSignup = findViewById(R.id.edt_emailSignup);
         edtPasswordSignup = findViewById(R.id.edt_passSignup);
@@ -133,7 +135,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     public void Adduser() {
 
         final String nama = edtNameSignup.getEditText().getText().toString().trim();
-        final String tgl_lahir = edtTglLahir.getEditText().getText().toString().trim();
+        final String tgl_lahir = edtTglLahir.getText().toString().trim();
+        final String tempat_lahir = edtTempatLahir.getText().toString().trim();
         final String email = edtEmailSignup.getEditText().getText().toString().trim();
         final String pwd = edtPasswordSignup.getEditText().getText().toString().trim();
 
@@ -180,6 +183,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
                 params.put("nama", nama);
                 params.put("ttl", tgl_lahir);
+                params.put("tempat", tempat_lahir);
                 params.put("email", email);
                 params.put("password", pwd);
 
