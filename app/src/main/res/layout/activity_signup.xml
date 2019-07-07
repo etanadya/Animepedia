@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_satu"
+    android:background="@drawable/dark_bg"
     tools:context=".SignupActivity">
 
     <TextView
@@ -13,14 +13,14 @@
         android:layout_height="65dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="25dp"
         android:background="@drawable/bg_palsu"
         android:fontFamily="serif-monospace"
         android:text="SIGN UP"
         android:textAlignment="center"
-        android:textColor="@color/colorBlack"
-        android:textSize="45sp"
+        android:textColor="@color/colorWhite"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -36,14 +36,18 @@
             android:id="@+id/edt_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="25dp"
             android:textColorHighlight="@color/colorWhite"
-            android:textColorHint="@color/colorBlack"
+            android:textColorHint="@color/colorWhite"
             app:errorEnabled="true">
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nama" />
+                android:hint="Nama"
+                android:textColor="@color/colorWhite"/>
         </android.support.design.widget.TextInputLayout>
         <TableLayout
             android:layout_width="match_parent"
@@ -58,14 +62,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="25dp"
                     android:hint="Tempat"
-                    android:textColorHint="@color/colorBlack"/>
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite"/>
 
                 <EditText
                     android:id="@+id/edt_ttl"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
                     android:hint="Tanggal Lahir"
-                    android:textColorHint="@color/colorBlack"/>
+                    android:textColorHint="@color/colorWhite" />
             </TableRow>
         </TableLayout>
 
@@ -75,7 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHighlight="@color/colorWhite"
-            android:textColorHint="@color/colorBlack"
+            android:textColorHint="@color/colorWhite"
             app:errorEnabled="true">
 
             <android.support.design.widget.TextInputEditText
@@ -84,6 +90,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginRight="25dp"
+                android:textColor="@color/colorWhite"
                 android:hint="Email"
                 android:inputType="textEmailAddress" />
         </android.support.design.widget.TextInputLayout>
@@ -93,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHighlight="@color/colorWhite"
-            android:textColorHint="@color/colorBlack"
+            android:textColorHint="@color/colorWhite"
             app:errorEnabled="true"
             app:passwordToggleEnabled="true">
 
@@ -102,6 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="25dp"
+                android:textColor="@color/colorWhite"
                 android:layout_marginRight="25dp"
                 android:hint="Password"
                 android:inputType="textPassword" />
@@ -134,12 +142,12 @@
             <TextView
                 android:id="@+id/tv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_weight="0.4"
                 android:fontFamily="serif-monospace"
                 android:text="@string/already_registered"
                 android:textAlignment="center"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
                 android:textSize="15sp" />
 
             <Button
@@ -151,7 +159,7 @@
                 android:fontFamily="serif-monospace"
                 android:text="@string/login_here"
                 android:textAllCaps="false"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorWhite"
                 android:textSize="15sp"
                 android:textStyle="italic|bold" />
         </LinearLayout>

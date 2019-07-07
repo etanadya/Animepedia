@@ -6,9 +6,14 @@
     tools:context=".DetailAnime">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/banner_detail_anime"
+        android:layout_marginTop="15dp"
+        tools:listitem="@layout/item_list_detail_anime"
+        android:id="@+id/rv_listdetail">
+
+    </android.support.v7.widget.RecyclerView>
 
 </FrameLayout>
