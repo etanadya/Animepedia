@@ -155,7 +155,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:background="#00FFFFFF"
+                android:background="@drawable/bg_palsu"
                 android:fontFamily="serif-monospace"
                 android:text="@string/login_here"
                 android:textAllCaps="false"

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.mobile.animepedia.DownloadFragment;
 import com.mobile.animepedia.Model.ListAnimeItem;
 import com.mobile.animepedia.R;
 
@@ -18,8 +19,21 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ListAnimeAdapter extends RecyclerView.Adapter<ListAnimeAdapter.ListAnimeViewHolder> {
+    private DownloadFragment downloadFragment;
     private List<ListAnimeItem>animeItems= new ArrayList<>();
     Context context;
+
+    public ListAnimeAdapter(DownloadFragment downloadFragment) {
+        this.downloadFragment = downloadFragment;
+    }
+
+    public DownloadFragment getDownloadFragment() {
+        return downloadFragment;
+    }
+
+    public void setDownloadFragment(DownloadFragment downloadFragment) {
+        this.downloadFragment = downloadFragment;
+    }
 
     public List<ListAnimeItem> getAnimeItems() {
         return animeItems;
@@ -42,14 +56,14 @@ public class ListAnimeAdapter extends RecyclerView.Adapter<ListAnimeAdapter.List
 
     @Override
     public void onBindViewHolder(@NonNull ListAnimeViewHolder listAnimeViewHolder, int i) {
-        Glide.with(context).load(getAnimeItems().get(i).getGambar()).into(listAnimeViewHolder.cimgImage);
-        listAnimeViewHolder.tvJudulList.setText(getAnimeItems().get(i).getEpisode());
+//        Glide.with(context).load(getAnimeItems().get(i).getGambar()).into(listAnimeViewHolder.cimgImage);
+//        listAnimeViewHolder.tvJudulList.setText(getAnimeItems().get(i).getEpisode());
 
     }
 
     @Override
     public int getItemCount() {
-        return getAnimeItems().size();
+        return 7;
     }
 
     public class ListAnimeViewHolder extends RecyclerView.ViewHolder {
