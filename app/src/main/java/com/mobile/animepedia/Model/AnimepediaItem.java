@@ -4,9 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class AnimepediaItem implements Parcelable  {
-    String id, judul,genre,hari_rilis,gambar,video,deskripsi;
+    String id, judul,genre,hari_rilis,gambar,video,deskripsi,banner,episode;
 
-    public AnimepediaItem(String id, String judul, String genre, String hari_rilis, String gambar, String video, String deskripsi) {
+    public AnimepediaItem(String id, String judul, String genre, String hari_rilis, String gambar, String video, String deskripsi, String banner, String episode) {
         this.id = id;
         this.judul = judul;
         this.genre = genre;
@@ -14,6 +14,8 @@ public class AnimepediaItem implements Parcelable  {
         this.gambar = gambar;
         this.video = video;
         this.deskripsi = deskripsi;
+        this.banner = banner;
+        this.episode = episode;
     }
 
     protected AnimepediaItem(Parcel in) {
@@ -24,6 +26,8 @@ public class AnimepediaItem implements Parcelable  {
         gambar = in.readString();
         video = in.readString();
         deskripsi = in.readString();
+        banner = in.readString();
+        episode = in.readString();
     }
 
     public static final Creator<AnimepediaItem> CREATOR = new Creator<AnimepediaItem>() {
@@ -94,6 +98,22 @@ public class AnimepediaItem implements Parcelable  {
         this.deskripsi = deskripsi;
     }
 
+    public String getBanner() {
+        return banner;
+    }
+
+    public void setBanner(String banner) {
+        this.banner = banner;
+    }
+
+    public String getEpisode() {
+        return episode;
+    }
+
+    public void setEpisode(String episode) {
+        this.episode = episode;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -108,5 +128,7 @@ public class AnimepediaItem implements Parcelable  {
         dest.writeString(gambar);
         dest.writeString(video);
         dest.writeString(deskripsi);
+        dest.writeString(banner);
+        dest.writeString(episode);
     }
 }

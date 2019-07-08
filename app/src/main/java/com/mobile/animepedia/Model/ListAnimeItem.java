@@ -4,34 +4,31 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class ListAnimeItem implements Parcelable {
-    String judul,sub_judul,genre,hari_rilis,gambar,video,download;
+
+    String id,judul,sub_judul,genre,hari_rilis,gambar,video,banner,episode;
+
+    public ListAnimeItem(String id, String judul, String sub_judul, String genre, String hari_rilis, String gambar, String video, String banner, String episode) {
+        this.id = id;
+        this.judul = judul;
+        this.sub_judul = sub_judul;
+        this.genre = genre;
+        this.hari_rilis = hari_rilis;
+        this.gambar = gambar;
+        this.video = video;
+        this.banner = banner;
+        this.episode = episode;
+    }
 
     protected ListAnimeItem(Parcel in) {
+        id = in.readString();
         judul = in.readString();
         sub_judul = in.readString();
         genre = in.readString();
         hari_rilis = in.readString();
         gambar = in.readString();
         video = in.readString();
-
-        download = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(judul);
-        dest.writeString(sub_judul);
-        dest.writeString(genre);
-        dest.writeString(hari_rilis);
-        dest.writeString(gambar);
-        dest.writeString(video);
-
-        dest.writeString(download);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
+        banner = in.readString();
+        episode = in.readString();
     }
 
     public static final Creator<ListAnimeItem> CREATOR = new Creator<ListAnimeItem>() {
@@ -45,6 +42,14 @@ public class ListAnimeItem implements Parcelable {
             return new ListAnimeItem[size];
         }
     };
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getJudul() {
         return judul;
@@ -94,24 +99,37 @@ public class ListAnimeItem implements Parcelable {
         this.video = video;
     }
 
-
-    public String getDownload() {
-        return download;
+    public String getBanner() {
+        return banner;
     }
 
-    public void setDownload(String download) {
-        this.download = download;
+    public void setBanner(String banner) {
+        this.banner = banner;
     }
 
-    public ListAnimeItem(String judul, String sub_judul, String genre, String hari_rilis, String gambar, String video,  String download) {
-        this.judul = judul;
-        this.sub_judul = sub_judul;
-        this.genre = genre;
-        this.hari_rilis = hari_rilis;
-        this.gambar = gambar;
-        this.video = video;
+    public String getEpisode() {
+        return episode;
+    }
 
-        this.download = download;
-        
+    public void setEpisode(String episode) {
+        this.episode = episode;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(judul);
+        dest.writeString(sub_judul);
+        dest.writeString(genre);
+        dest.writeString(hari_rilis);
+        dest.writeString(gambar);
+        dest.writeString(video);
+        dest.writeString(banner);
+        dest.writeString(episode);
     }
 }

@@ -85,7 +85,9 @@ public class HomePresenter {
                                 animepediaObject.getString( "hari_rilis" ),
                                 animepediaObject.getString( "gambar" ),
                                 animepediaObject.getString( "video" ),
-                                animepediaObject.getString( "deskripsi" )
+                                animepediaObject.getString( "deskripsi" ),
+                                animepediaObject.getString( "banner" ),
+                                animepediaObject.getString( "episode" )
 
                                );
 
