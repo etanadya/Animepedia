@@ -22,15 +22,27 @@
         android:layout_height="250dp"
         android:scaleType="fitXY"
         android:src="@drawable/captain_tsubasa"/>
-
-    <android.support.v7.widget.RecyclerView
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/banner_detail_anime"
-        android:layout_marginTop="15dp"
-        tools:listitem="@layout/item_list_detail_anime"
-        android:id="@+id/rv_listdetail">
+        android:layout_height="50dp"
+        android:background="@color/colorBiru"
+        android:layout_below="@id/banner_detail_anime">
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </android.support.v7.widget.RecyclerView>
+        </android.support.design.widget.TabLayout>
+    </android.support.v7.widget.Toolbar>
+
+
+   <FrameLayout
+       android:id="@+id/frame"
+       android:layout_below="@id/banner_detail_anime"
+       android:layout_margin="10dp"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+   </FrameLayout>
 
 </RelativeLayout>

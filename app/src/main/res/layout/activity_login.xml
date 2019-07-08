@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_satu"
+    android:background="@drawable/dark_bg"
     tools:context=".LoginActivity">
 
     <TextView
@@ -13,14 +13,14 @@
         android:layout_height="65dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="25sp"
-        android:background="@drawable/bagraund_putih"
+        android:background="@drawable/bg_palsu"
         android:fontFamily="serif-monospace"
         android:text="LOGIN"
         android:textAlignment="center"
-        android:textColor="@color/colorBlack"
-        android:textSize="50sp"
+        android:textColor="@color/colorWhite"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:gravity="center"
         android:orientation="vertical">
 
         <android.support.design.widget.TextInputLayout
@@ -43,32 +44,32 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="25sp"
                 android:hint="Email"
+                android:textColor="@color/colorWhite"
                 android:inputType="textEmailAddress" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/edt_password"
-            android:layout_width="400dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHighlight="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
             app:errorEnabled="true"
-            app:passwordToggleEnabled="true"
-            app:counterEnabled="true"
-            app:counterMaxLength="8">
+            app:passwordToggleEnabled="true">
 
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="25sp"
                 android:hint="Password"
+                android:textColor="@color/colorWhite"
                 android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
 
 
         <Button
             android:id="@+id/btn_login"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="25dp"
@@ -93,25 +94,24 @@
                 android:id="@+id/tv_daftardisini"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_weight="0.4"
                 android:fontFamily="serif-monospace"
                 android:text="@string/are_you_registered"
                 android:textAlignment="center"
-                android:textColor="@color/colorBlack"
-                android:textSize="18sp" />
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/btn_gotoregister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:background="#17FFFFFF"
+                android:background="@drawable/bg_palsu"
                 android:fontFamily="serif-monospace"
                 android:text="@string/register_here"
                 android:textAllCaps="false"
-                android:textColor="@color/colorBlack"
-                android:textSize="18sp"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
                 android:textStyle="italic|bold" />
         </LinearLayout>
 
