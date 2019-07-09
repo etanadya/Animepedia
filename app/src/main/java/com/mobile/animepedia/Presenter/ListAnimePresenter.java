@@ -64,7 +64,6 @@ public class ListAnimePresenter {
     }
 
 
-
     public void LoadItemDetail(String string) {
         String URL = animepediaApi.getListDetail(string);
         final ArrayList<ListAnimeItem> listAnimeItems = new ArrayList<>();
@@ -81,12 +80,12 @@ public class ListAnimePresenter {
                                 listAnimepediaObject.getString("id"),
                                 listAnimepediaObject.getString("judul"),
                                 listAnimepediaObject.getString("sub_judul"),
+                                listAnimepediaObject.getString("episode"),
                                 listAnimepediaObject.getString("genre"),
                                 listAnimepediaObject.getString("hari_rilis"),
                                 listAnimepediaObject.getString("gambar"),
-                                listAnimepediaObject.getString("video"),
                                 listAnimepediaObject.getString("banner"),
-                                listAnimepediaObject.getString("episode")
+                                listAnimepediaObject.getString("video")
                         );
 
                         listAnimeItems.add(listAnimeItem);

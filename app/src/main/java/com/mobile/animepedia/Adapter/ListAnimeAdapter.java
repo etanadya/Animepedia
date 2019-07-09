@@ -2,6 +2,7 @@ package com.mobile.animepedia.Adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,14 +57,14 @@ public class ListAnimeAdapter extends RecyclerView.Adapter<ListAnimeAdapter.List
 
     @Override
     public void onBindViewHolder(@NonNull ListAnimeViewHolder listAnimeViewHolder, int i) {
-//        Glide.with(context).load(getAnimeItems().get(i).getGambar()).into(listAnimeViewHolder.cimgImage);
-//        listAnimeViewHolder.tvJudulList.setText(getAnimeItems().get(i).getEpisode());
+        Glide.with(getDownloadFragment().getActivity()).load(getAnimeItems().get(i).getGambar()).into(listAnimeViewHolder.cimgImage);
+        listAnimeViewHolder.tvJudulList.setText(getAnimeItems().get(i).getEpisode());
 
     }
 
     @Override
     public int getItemCount() {
-        return 7;
+        return getAnimeItems().size();
     }
 
     public class ListAnimeViewHolder extends RecyclerView.ViewHolder {

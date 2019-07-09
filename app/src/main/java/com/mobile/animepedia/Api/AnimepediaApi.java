@@ -9,7 +9,7 @@ public class AnimepediaApi {
     }
 
     public String getListDetail(String string) {
-        String listDetail = "search/serach_anime.php/judul=";
+        String listDetail = "search/serach_anime.php?judul=";
         String List = BuildConfig.SERVER + listDetail + string ;
 
         return List;

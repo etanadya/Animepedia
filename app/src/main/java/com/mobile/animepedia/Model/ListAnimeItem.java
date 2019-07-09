@@ -5,30 +5,30 @@ import android.os.Parcelable;
 
 public class ListAnimeItem implements Parcelable {
 
-    String id,judul,sub_judul,genre,hari_rilis,gambar,video,banner,episode;
+    String id,judul,sub_judul,episode,genre,hari_rilis,gambar,banner,video;
 
-    public ListAnimeItem(String id, String judul, String sub_judul, String genre, String hari_rilis, String gambar, String video, String banner, String episode) {
+    public ListAnimeItem(String id, String judul, String sub_judul, String episode, String genre, String hari_rilis, String gambar, String banner, String video) {
         this.id = id;
         this.judul = judul;
         this.sub_judul = sub_judul;
+        this.episode = episode;
         this.genre = genre;
         this.hari_rilis = hari_rilis;
         this.gambar = gambar;
-        this.video = video;
         this.banner = banner;
-        this.episode = episode;
+        this.video = video;
     }
 
     protected ListAnimeItem(Parcel in) {
         id = in.readString();
         judul = in.readString();
         sub_judul = in.readString();
+        episode = in.readString();
         genre = in.readString();
         hari_rilis = in.readString();
         gambar = in.readString();
-        video = in.readString();
         banner = in.readString();
-        episode = in.readString();
+        video = in.readString();
     }
 
     public static final Creator<ListAnimeItem> CREATOR = new Creator<ListAnimeItem>() {
@@ -67,6 +67,14 @@ public class ListAnimeItem implements Parcelable {
         this.sub_judul = sub_judul;
     }
 
+    public String getEpisode() {
+        return episode;
+    }
+
+    public void setEpisode(String episode) {
+        this.episode = episode;
+    }
+
     public String getGenre() {
         return genre;
     }
@@ -91,14 +99,6 @@ public class ListAnimeItem implements Parcelable {
         this.gambar = gambar;
     }
 
-    public String getVideo() {
-        return video;
-    }
-
-    public void setVideo(String video) {
-        this.video = video;
-    }
-
     public String getBanner() {
         return banner;
     }
@@ -107,12 +107,12 @@ public class ListAnimeItem implements Parcelable {
         this.banner = banner;
     }
 
-    public String getEpisode() {
-        return episode;
+    public String getVideo() {
+        return video;
     }
 
-    public void setEpisode(String episode) {
-        this.episode = episode;
+    public void setVideo(String video) {
+        this.video = video;
     }
 
     @Override
@@ -125,11 +125,11 @@ public class ListAnimeItem implements Parcelable {
         dest.writeString(id);
         dest.writeString(judul);
         dest.writeString(sub_judul);
+        dest.writeString(episode);
         dest.writeString(genre);
         dest.writeString(hari_rilis);
         dest.writeString(gambar);
-        dest.writeString(video);
         dest.writeString(banner);
-        dest.writeString(episode);
+        dest.writeString(video);
     }
 }
