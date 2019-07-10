@@ -4,32 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    tools:context=".DetailActivity"
+    android:background="@drawable/dark_bg">
     <TextView
         android:id="@+id/tv_judul_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tsubatsa"
         android:fontFamily="serif-monospace"
+        android:padding="10dp"
         android:textStyle="bold"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorWhite"
         android:textSize="25sp"/>
 
     <ImageView
         android:id="@+id/banner_detail_anime"
-        android:layout_below="@+id/tv_judul_detail"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:layout_below="@+id/tv_judul_detail"
+        android:layout_marginTop="0dp"
+        android:padding="10dp"
         android:scaleType="fitXY"
-        android:src="@drawable/captain_tsubasa"/>
+        android:src="@drawable/captain_tsubasa" />
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/colorBiru"
+        android:background="@drawable/bg_palsu"
         android:layout_below="@id/banner_detail_anime">
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
+            app:tabTextColor="@color/colorWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -40,7 +45,8 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:layout_below="@id/toolbar"/>
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="-5dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </RelativeLayout>

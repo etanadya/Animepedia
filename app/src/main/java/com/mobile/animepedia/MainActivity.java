@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private FirebaseAuth.AuthStateListener authListener;
     RecyclerView rvHome;
 
-
     HomePresenter homePresenter;
     HomeAdapter homeAdapter;
     AnimepediaApi animepediaApi;
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         setContentView(R.layout.activity_main);
         rvHome = findViewById(R.id.rv_list_beranda);
         auth = FirebaseAuth.getInstance();
+
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -136,4 +137,5 @@ public class MainActivity extends AppCompatActivity implements MainView {
     public void showListDetail(ArrayList<ListAnimeItem> listAnimeItems) {
 
     }
+
 }
