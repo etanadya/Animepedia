@@ -85,7 +85,9 @@ public class ListAnimePresenter {
                                 listAnimepediaObject.getString("hari_rilis"),
                                 listAnimepediaObject.getString("gambar"),
                                 listAnimepediaObject.getString("banner"),
-                                listAnimepediaObject.getString("video")
+                                listAnimepediaObject.getString("video"),
+                                listAnimepediaObject.getString("deskripsi"),
+                                listAnimepediaObject.getString("deskripsi_eps")
                         );
 
                         listAnimeItems.add(listAnimeItem);

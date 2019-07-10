@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@drawable/dark_bg">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailDownloadActivity"
+    android:layout_margin="25dp">
 
     <TextView
         android:id="@+id/tv_judul_download_episode"
         android:textSize="30sp"
         android:fontFamily="serif-monospace"
         android:textStyle="bold"
-        android:padding="10dp"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tsubatsa"/>
@@ -32,7 +35,7 @@
         android:textSize="25sp"
         android:textStyle="bold"
         android:fontFamily="serif-monospace"
-        android:textColor="@color/colorWhite" />
+        android:textColor="@color/colorBlack" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,16 +58,16 @@
             android:text="DOWNLOAD"
             android:fontFamily="serif-monospace"
             android:textStyle="bold"
-            android:textSize="25sp"
-            android:background="@drawable/bg_palsu"
-            android:textColor="@color/colorWhite"/>
+            android:textSize="25sp"/>
 
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:layout_below="@+id/Linier"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_list_download">
 
     </android.support.v7.widget.RecyclerView>
+
 
 </RelativeLayout>

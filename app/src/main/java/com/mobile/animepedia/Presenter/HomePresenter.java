@@ -87,7 +87,9 @@ public class HomePresenter {
                                 animepediaObject.getString( "video" ),
                                 animepediaObject.getString( "deskripsi" ),
                                 animepediaObject.getString( "banner" ),
-                                animepediaObject.getString( "episode" )
+                                animepediaObject.getString( "episode" ),
+                                animepediaObject.getString( "deskripsi_eps" )
+
 
                                );
 

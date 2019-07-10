@@ -38,7 +38,10 @@ public class DetailActivity extends AppCompatActivity implements MainView {
     ListAnimePresenter listAnimePresenter;
     AnimepediaApi animepediaApi;
 
-    public static String JDL = "jdl";
+    public static String EXTRA_JUDUL = "extra_judul";
+    public static String EXTRA_EPISODE = "extra_episode";
+    public static String EXTRA_GAMBAR = "extra_gambar";
+    public static String EXTRA_DESKRIPSI_EPS = "extra_deskripsi_episode";
 
 
 
@@ -62,7 +65,9 @@ public class DetailActivity extends AppCompatActivity implements MainView {
 //        listAnimePresenter.LoadItemDetail(animepediaItem.getJudul());
 //        setupToolbar();
         init();
-        JDL = animepediaItem.getJudul();
+        EXTRA_JUDUL = animepediaItem.getJudul();
+        EXTRA_GAMBAR = animepediaItem.getGambar();
+        EXTRA_DESKRIPSI_EPS = animepediaItem.getDeskripsi_eps();
 
 
 
@@ -108,18 +113,23 @@ public class DetailActivity extends AppCompatActivity implements MainView {
     @Override
     public void showListDetail(ArrayList<ListAnimeItem> listAnimeItems) {
 
-        listAnimeAdapter.setAnimeItems(listAnimeItems);
-        rvListDetail.setAdapter(listAnimeAdapter);
-        listAnimeAdapter.notifyDataSetChanged();
+//        listAnimeAdapter.setAnimeItems(listAnimeItems);
+//        rvListDetail.setAdapter(listAnimeAdapter);
+//        listAnimeAdapter.notifyDataSetChanged();
+//
+//        ItemClickSupport.addTo(rvListDetail).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+//            @Override
+//            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+//                Toast.makeText(DetailActivity.this,"OK",Toast.LENGTH_SHORT).show();
+//                Intent intentDownload =  new Intent(DetailActivity.this, DetailDownloadActivity.class);
+//                startActivity(intentDownload);
+//            }
+//        });
 
-        ItemClickSupport.addTo(rvListDetail).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
-            @Override
-            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                Toast.makeText(DetailActivity.this,"OK",Toast.LENGTH_SHORT).show();
-                Intent intentDownload =  new Intent(DetailActivity.this, DetailDownloadActivity.class);
-                startActivity(intentDownload);
-            }
-        });
+    }
+
+    @Override
+    public void showSearchEps(ArrayList<ListAnimeItem> listAnimeItems) {
 
     }
 

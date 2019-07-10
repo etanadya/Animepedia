@@ -8,4 +8,5 @@ import java.util.ArrayList;
 public interface MainView {
     void showAnimepedia(ArrayList<AnimepediaItem> animepediaItems);
     void showListDetail(ArrayList<ListAnimeItem>listAnimeItems);
+    void showSearchEps(ArrayList<ListAnimeItem>listAnimeItems);
 }

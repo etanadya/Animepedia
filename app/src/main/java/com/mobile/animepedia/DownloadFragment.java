@@ -64,7 +64,7 @@ public class DownloadFragment extends Fragment implements MainView {
         ListAnimeAdapter listAnimeAdapter = new ListAnimeAdapter(DownloadFragment.this);
         rvListDownload.setAdapter(listAnimeAdapter);
         listAnimePresenter = new ListAnimePresenter( this,animepediaApi,this);
-        listAnimePresenter.LoadItemDetail(detailActivity.JDL);
+        listAnimePresenter.LoadItemDetail(detailActivity.EXTRA_JUDUL);
 
 
     }
@@ -76,7 +76,7 @@ public class DownloadFragment extends Fragment implements MainView {
     }
 
     @Override
-    public void showListDetail(ArrayList<ListAnimeItem> listAnimeItems) {
+    public void showListDetail(final ArrayList<ListAnimeItem> listAnimeItems) {
         listAnimeAdapter.setAnimeItems(listAnimeItems);
         rvListDownload.setAdapter(listAnimeAdapter);
         listAnimeAdapter.notifyDataSetChanged();
@@ -84,11 +84,32 @@ public class DownloadFragment extends Fragment implements MainView {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 Intent intent = new Intent(getActivity(), DetailDownloadActivity.class);
+
+                ListAnimeItem listAnimeItem = new ListAnimeItem(
+                        listAnimeItems.get(position).getId(),
+                        listAnimeItems.get(position).getJudul(),
+                        listAnimeItems.get(position).getEpisode(),
+                        listAnimeItems.get(position).getSub_judul(),
+                        listAnimeItems.get(position).getGenre(),
+                        listAnimeItems.get(position).getHari_rilis(),
+                        listAnimeItems.get(position).getGambar(),
+                        listAnimeItems.get(position).getVideo(),
+                        listAnimeItems.get(position).getBanner(),
+                        listAnimeItems.get(position).getDeskripsi(),
+                        listAnimeItems.get(position).getDeskripsi_eps()
+
+                );
+                intent.putExtra("datalist",listAnimeItem);
                 startActivity(intent);
                 Toast.makeText(getContext(), "ok", Toast.LENGTH_SHORT).show();
 
             }
         });
+
+    }
+
+    @Override
+    public void showSearchEps(ArrayList<ListAnimeItem> listAnimeItems) {
 
     }
 }
