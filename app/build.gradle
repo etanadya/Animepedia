@@ -4,7 +4,7 @@ apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 28
     defaultConfig {
-        buildConfigField("String", "SERVER", "\"http://cucusadewa0294belajar.000webhostapp.com/animepedia/api/\"")
+        buildConfigField("String", "SERVER", "\"http://3jnc.tech/animepedia/api/\"")
         applicationId "com.mobile.animepedia"
         minSdkVersion 21
         targetSdkVersion 28

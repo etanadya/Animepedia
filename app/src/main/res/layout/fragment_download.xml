@@ -3,17 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailAnime">
+    tools:context=".DownloadFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/rv_listdetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/banner_detail_anime"
         android:layout_marginTop="15dp"
-        tools:listitem="@layout/item_list_detail_anime"
-        android:id="@+id/rv_listdetail">
+        tools:listitem="@layout/item_list_detail_anime">
 
     </android.support.v7.widget.RecyclerView>
-
 </FrameLayout>

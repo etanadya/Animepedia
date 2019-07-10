@@ -10,7 +10,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.mobile.animepedia.Api.AnimepediaApi;
-import com.mobile.animepedia.Model.AnimepediaItem;
+import com.mobile.animepedia.DownloadFragment;
 import com.mobile.animepedia.Model.ListAnimeItem;
 import com.mobile.animepedia.View.MainView;
 
@@ -23,11 +23,19 @@ public class ListAnimePresenter {
     MainView view;
     StringRequest stringRequest;
     AnimepediaApi animepediaApi;
-    Context context;
+    DownloadFragment context;
 
-    public ListAnimePresenter(MainView view, AnimepediaApi animepediaApi, Context context) {
+    public ListAnimePresenter(MainView view, AnimepediaApi animepediaApi, DownloadFragment context) {
         this.view = view;
         this.animepediaApi = animepediaApi;
+        this.context = context;
+    }
+
+    public DownloadFragment getContext() {
+        return context;
+    }
+
+    public void setContext(DownloadFragment context) {
         this.context = context;
     }
 
@@ -55,13 +63,6 @@ public class ListAnimePresenter {
         this.animepediaApi = animepediaApi;
     }
 
-    public Context getContext() {
-        return context;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
 
     public void LoadItemDetail(String string) {
         String URL = animepediaApi.getListDetail(string);
@@ -79,12 +80,12 @@ public class ListAnimePresenter {
                                 listAnimepediaObject.getString("id"),
                                 listAnimepediaObject.getString("judul"),
                                 listAnimepediaObject.getString("sub_judul"),
+                                listAnimepediaObject.getString("episode"),
                                 listAnimepediaObject.getString("genre"),
                                 listAnimepediaObject.getString("hari_rilis"),
                                 listAnimepediaObject.getString("gambar"),
-                                listAnimepediaObject.getString("video"),
                                 listAnimepediaObject.getString("banner"),
-                                listAnimepediaObject.getString("episode")
+                                listAnimepediaObject.getString("video")
                         );
 
                         listAnimeItems.add(listAnimeItem);
@@ -102,10 +103,10 @@ public class ListAnimePresenter {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext().getActivity(), "Error", Toast.LENGTH_SHORT).show();
             }
         });
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+        RequestQueue requestQueue = Volley.newRequestQueue(getContext().getActivity());
         requestQueue.add(stringRequest);
     }
 }
