@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -13,12 +14,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.mobile.animepedia.Adapter.HomeAdapter;
 import com.mobile.animepedia.Adapter.ListAnimeAdapter;
 import com.mobile.animepedia.Adapter.ViewPagerAdapter;
 import com.mobile.animepedia.Api.AnimepediaApi;
 import com.mobile.animepedia.Model.AnimepediaItem;
 import com.mobile.animepedia.Model.ListAnimeItem;
 import com.mobile.animepedia.OnclickLibrary.ItemClickSupport;
+import com.mobile.animepedia.Presenter.HomePresenter;
 import com.mobile.animepedia.Presenter.ListAnimePresenter;
 import com.mobile.animepedia.View.MainView;
 
