@@ -8,7 +8,7 @@
     android:layout_margin="25dp">
 
     <TextView
-        android:id="@+id/tv_judul_download_episode"
+        android:id="@+id/tv_judul_download"
         android:textSize="30sp"
         android:fontFamily="serif-monospace"
         android:textStyle="bold"
@@ -21,7 +21,7 @@
         android:id="@+id/banner_episode"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_below="@id/tv_judul_download_episode"
+        android:layout_below="@id/tv_judul_download"
         android:layout_height="180dp"
         android:scaleType="centerCrop"
         android:src="@drawable/banner_tsubatsa"/>
@@ -47,6 +47,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_deskripsi_download"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Deskripsi"/>
@@ -62,6 +63,7 @@
 
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvLink"
         android:layout_below="@+id/Linier"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

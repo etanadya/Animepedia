@@ -152,7 +152,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
                     // Cek error node pada json
                     if (success == 1) {
-                        Log.d("Add/update", jObj.toString());
+                        Log.d("Add", jObj.toString());
 
 
                         Toast.makeText(SignupActivity.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
@@ -182,8 +182,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 // jika id kosong maka simpan, jika id ada nilainya maka update
 
                 params.put("nama", nama);
-                params.put("ttl", tgl_lahir);
-                params.put("tempat", tempat_lahir);
+                params.put("tgl_lahir", tgl_lahir);
+//                params.put("tempat", tempat_lahir);
                 params.put("email", email);
                 params.put("password", pwd);
 
