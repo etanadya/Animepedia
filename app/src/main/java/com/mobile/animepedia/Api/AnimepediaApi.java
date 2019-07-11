@@ -14,10 +14,10 @@ public class AnimepediaApi {
 
         return List;
     }
-    public String getSearchEps(String judul,String eps) {
-        String search = "search/serach_anime.php?judul=";
-        String SearchEps = BuildConfig.SERVER + search + judul+"&eps="+eps ;
+    public String getLinkDownload() {
+        String link = "download/link_download_anime.php";
+        String LinkDownload = BuildConfig.SERVER + link ;
 
-        return SearchEps;
+        return LinkDownload;
     }
 }

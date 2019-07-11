@@ -19,6 +19,7 @@ import com.mobile.animepedia.Adapter.ListAnimeAdapter;
 import com.mobile.animepedia.Adapter.ViewPagerAdapter;
 import com.mobile.animepedia.Api.AnimepediaApi;
 import com.mobile.animepedia.Model.AnimepediaItem;
+import com.mobile.animepedia.Model.LinkDownloadItem;
 import com.mobile.animepedia.Model.ListAnimeItem;
 import com.mobile.animepedia.OnclickLibrary.ItemClickSupport;
 import com.mobile.animepedia.Presenter.HomePresenter;
@@ -42,6 +43,7 @@ public class DetailActivity extends AppCompatActivity implements MainView {
     public static String EXTRA_EPISODE = "extra_episode";
     public static String EXTRA_GAMBAR = "extra_gambar";
     public static String EXTRA_DESKRIPSI_EPS = "extra_deskripsi_episode";
+    public static String EXTRA_DESKRIPSI= "extra_deskripsi";
 
 
 
@@ -68,6 +70,7 @@ public class DetailActivity extends AppCompatActivity implements MainView {
         EXTRA_JUDUL = animepediaItem.getJudul();
         EXTRA_GAMBAR = animepediaItem.getGambar();
         EXTRA_DESKRIPSI_EPS = animepediaItem.getDeskripsi_eps();
+        EXTRA_DESKRIPSI = animepediaItem.getDeskripsi();
 
 
 
@@ -130,6 +133,11 @@ public class DetailActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void showSearchEps(ArrayList<ListAnimeItem> listAnimeItems) {
+
+    }
+
+    @Override
+    public void showLink(ArrayList<LinkDownloadItem> linkDownloadItems) {
 
     }
 

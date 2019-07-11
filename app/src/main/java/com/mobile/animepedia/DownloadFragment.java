@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.mobile.animepedia.Adapter.ListAnimeAdapter;
 import com.mobile.animepedia.Api.AnimepediaApi;
 import com.mobile.animepedia.Model.AnimepediaItem;
+import com.mobile.animepedia.Model.LinkDownloadItem;
 import com.mobile.animepedia.Model.ListAnimeItem;
 import com.mobile.animepedia.OnclickLibrary.ItemClickSupport;
 import com.mobile.animepedia.Presenter.ListAnimePresenter;
@@ -110,6 +111,11 @@ public class DownloadFragment extends Fragment implements MainView {
 
     @Override
     public void showSearchEps(ArrayList<ListAnimeItem> listAnimeItems) {
+
+    }
+
+    @Override
+    public void showLink(ArrayList<LinkDownloadItem> linkDownloadItems) {
 
     }
 }

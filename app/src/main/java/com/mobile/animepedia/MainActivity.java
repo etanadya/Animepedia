@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.mobile.animepedia.Adapter.HomeAdapter;
 import com.mobile.animepedia.Api.AnimepediaApi;
 import com.mobile.animepedia.Model.AnimepediaItem;
+import com.mobile.animepedia.Model.LinkDownloadItem;
 import com.mobile.animepedia.Model.ListAnimeItem;
 import com.mobile.animepedia.OnclickLibrary.ItemClickSupport;
 import com.mobile.animepedia.Presenter.HomePresenter;
@@ -141,6 +142,11 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void showSearchEps(ArrayList<ListAnimeItem> listAnimeItems) {
+
+    }
+
+    @Override
+    public void showLink(ArrayList<LinkDownloadItem> linkDownloadItems) {
 
     }
 }

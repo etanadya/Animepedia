@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".DeskripsiFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <TextView android:id="@+id/tv_deskripsi_frag"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />

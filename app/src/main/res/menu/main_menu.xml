@@ -3,5 +3,5 @@
 
     <item
         android:id="@+id/item_signout"
-        android:title="Sign Out" />
+        android:title="Log out" />
 </menu>
