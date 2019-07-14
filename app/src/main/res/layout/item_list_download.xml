@@ -5,13 +5,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@drawable/bg_palsu">
 
         <TextView
             android:id="@+id/tv_link"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Samehadaku.net"
+            android:textColor="@color/colorWhite"
             android:layout_weight="0.3"/>
 
         <Button
