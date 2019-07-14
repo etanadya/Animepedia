@@ -28,7 +28,10 @@ public class DetailDownloadActivity extends AppCompatActivity implements MainVie
     RecyclerView rvLink;
     LinkDownloadAdapter linkDownloadAdapter;
     LinkDownloadPresenter linkDownloadPresenter;
-    List<ListAnimeItem> listAnimeItems = new ArrayList<>();
+    public static String EXTRA_JUDUL = "extra_judul";
+    public static String EXTRA_SUB_JUDUL = "extra_sub_judul";
+    public static String EXTRA_EPISODE = "extra_episode";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,11 @@ public class DetailDownloadActivity extends AppCompatActivity implements MainVie
         tvEpisodeDownload.setText(listAnimeItem.getEpisode());
         tvDeskripsiEps.setText(listAnimeItem.getDeskripsi_eps());
         Glide.with(this).load(listAnimeItem.getGambar()).into(imgGambarDownload);
+
+        EXTRA_EPISODE = listAnimeItem.getEpisode();
+        EXTRA_JUDUL = listAnimeItem.getJudul();
+        EXTRA_SUB_JUDUL = listAnimeItem.getSub_judul();
+
 
         linkDownloadAdapter = new LinkDownloadAdapter(this);
         rvLink.setLayoutManager(new LinearLayoutManager(this));

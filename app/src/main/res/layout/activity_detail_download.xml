@@ -5,79 +5,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetailDownloadActivity"
-    android:layout_margin="25dp">
-    <ScrollView
+
+    android:background="@drawable/dark_bg">
+
+    <TextView
+        android:id="@+id/tv_judul_download"
+        android:textSize="30sp"
+        android:fontFamily="serif-monospace"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout
+        android:layout_height="wrap_content"
+        android:text="Tsubatsa"
+        />
+
+    <ImageView
+        android:id="@+id/banner_episode"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_below="@id/tv_judul_download"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/banner_tsubatsa"/>
+
+    <TextView
+        android:id="@+id/tv_judul_episode_download"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Episode 1"
+        android:layout_below="@id/banner_episode"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:fontFamily="serif-monospace"
+        android:textColor="@color/colorWhite" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/Linier"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_judul_episode_download"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_deskripsi_download"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/tv_judul_download"
-                android:textSize="30sp"
-                android:fontFamily="serif-monospace"
-                android:textStyle="bold"
-                android:textColor="@color/colorBlack"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tsubatsa"/>
+            android:layout_height="wrap_content"
+            android:text="Deskripsi"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"/>
 
-            <ImageView
-                android:id="@+id/banner_episode"
-                android:layout_margin="10dp"
-                android:layout_width="match_parent"
-                android:layout_below="@id/tv_judul_download"
-                android:layout_height="180dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/banner_tsubatsa"/>
+        <TextView
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LINK DOWNLOAD"
+            android:fontFamily="serif-monospace"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:textSize="25sp"/>
 
-            <TextView
-                android:id="@+id/tv_judul_episode_download"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Episode 1"
-                android:layout_below="@id/banner_episode"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:fontFamily="serif-monospace"
-                android:textColor="@color/colorBlack" />
+    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:id="@+id/Linier"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/tv_judul_episode_download"
-                android:layout_centerVertical="true"
-                android:orientation="vertical">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Linier"
+        android:layout_marginTop="-3dp"
+        tools:listitem="@layout/item_list_download">
 
-                <TextView
-                    android:id="@+id/tv_deskripsi_download"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Deskripsi"/>
-
-                <TextView
-                    android:textAlignment="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="LINK DOWNLOAD"
-                    android:fontFamily="serif-monospace"
-                    android:textStyle="bold"
-                    android:textSize="25sp"/>
-
-            </LinearLayout>
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvLink"
-                android:layout_below="@+id/Linier"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:listitem="@layout/item_list_download">
-
-            </android.support.v7.widget.RecyclerView>
-
-        </RelativeLayout>
-    </ScrollView>
+    </android.support.v7.widget.RecyclerView>
 
 
 </RelativeLayout>

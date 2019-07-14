@@ -56,7 +56,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
     @Override
     public void onBindViewHolder(@NonNull HomeViewHolder homeViewHolder, int i) {
         Glide.with(getContext()).load(getAnimepediaItem().get(i).getGambar()).into(homeViewHolder.imgPhoto);
-        homeViewHolder.tvJudul.setText(getAnimepediaItem().get(i).getEpisode());
+        homeViewHolder.tvJudul.setText(getAnimepediaItem().get(i).getJudul());
         homeViewHolder.tvHari.setText(getAnimepediaItem().get(i).getHari_rilis());
     }
 

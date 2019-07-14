@@ -69,7 +69,6 @@ public class DetailActivity extends AppCompatActivity implements MainView {
         init();
         EXTRA_JUDUL = animepediaItem.getJudul();
         EXTRA_GAMBAR = animepediaItem.getGambar();
-        EXTRA_DESKRIPSI_EPS = animepediaItem.getDeskripsi_eps();
         EXTRA_DESKRIPSI = animepediaItem.getDeskripsi();
 
 
@@ -98,15 +97,8 @@ public class DetailActivity extends AppCompatActivity implements MainView {
         tabs.setTabsFromPagerAdapter( viewPagerAdapter );
     }
 
-    private void TampilDetailList() {
-//        listAnimeAdapter = new ListAnimeAdapter(this);
-//        animepediaApi = new AnimepediaApi();
-//        rvListDetail.setLayoutManager(new LinearLayoutManager(this));
-//        listAnimePresenter = new ListAnimePresenter(this, animepediaApi, this);
-//        rvListDetail.setAdapter(listAnimeAdapter);
 
 
-    }
 
     @Override
     public void showAnimepedia(ArrayList<AnimepediaItem> animepediaItems) {
@@ -116,18 +108,7 @@ public class DetailActivity extends AppCompatActivity implements MainView {
     @Override
     public void showListDetail(ArrayList<ListAnimeItem> listAnimeItems) {
 
-//        listAnimeAdapter.setAnimeItems(listAnimeItems);
-//        rvListDetail.setAdapter(listAnimeAdapter);
-//        listAnimeAdapter.notifyDataSetChanged();
-//
-//        ItemClickSupport.addTo(rvListDetail).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
-//            @Override
-//            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-//                Toast.makeText(DetailActivity.this,"OK",Toast.LENGTH_SHORT).show();
-//                Intent intentDownload =  new Intent(DetailActivity.this, DetailDownloadActivity.class);
-//                startActivity(intentDownload);
-//            }
-//        });
+//        li
 
     }
 

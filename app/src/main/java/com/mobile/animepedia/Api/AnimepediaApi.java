@@ -7,6 +7,11 @@ public class AnimepediaApi {
         String home = "http://3jnc.tech/animepedia/api/home/listanime.php";
         return home;
     }
+    public String getHome() {
+        String home = "home/listanime_home.php";
+        String ListHome = "http://3jnc.tech/animepedia/api/home/listanime_home.php";
+        return ListHome;
+    }
 
     public String getListDetail(String string) {
         String listDetail = "search/serach_anime.php?judul=";
