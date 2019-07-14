@@ -6,12 +6,9 @@
     tools:context=".DeskripsiFragment">
 
 
-    <com.codesgood.views.JustifiedTextView
-        android:id="@+id/tv_deskripsi_frag"
-        android:textColor="@color/colorWhite"
+    <TextView android:id="@+id/tv_deskripsi_frag"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:justificationMode="inter_word"/>
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>
