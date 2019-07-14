@@ -67,7 +67,7 @@ public class HomePresenter {
 
 
     public void LoadAnimepedia() {
-        String URL = animepediaApi.getLeague();
+        String URL = animepediaApi.getHome();
         final ArrayList<AnimepediaItem> animepediaItems = new ArrayList<>();
 
         StringRequest stringRequest = new StringRequest( Request.Method.GET, URL, new Response.Listener<String>() {
@@ -75,7 +75,7 @@ public class HomePresenter {
             public void onResponse(String response) {
                 try {
                     JSONObject object = new JSONObject( response );
-                    JSONArray animepediaArray = object.getJSONArray( "animepedia" );
+                    JSONArray animepediaArray = object.getJSONArray( "list_anime_home" );
                     for (int i = 0; i < animepediaArray.length(); i++) {
                         JSONObject animepediaObject = animepediaArray.getJSONObject( i );
                         AnimepediaItem animepediaItem = new AnimepediaItem(
@@ -84,11 +84,8 @@ public class HomePresenter {
                                 animepediaObject.getString( "genre" ),
                                 animepediaObject.getString( "hari_rilis" ),
                                 animepediaObject.getString( "gambar" ),
-                                animepediaObject.getString( "video" ),
-                                animepediaObject.getString( "deskripsi" ),
                                 animepediaObject.getString( "banner" ),
-                                animepediaObject.getString( "episode" ),
-                                animepediaObject.getString( "deskripsi_eps" )
+                                animepediaObject.getString( "deskripsi" )
 
 
                                );

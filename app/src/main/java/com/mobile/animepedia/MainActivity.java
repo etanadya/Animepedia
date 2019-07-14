@@ -120,11 +120,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
                             animepediaItems.get(position).getGenre(),
                             animepediaItems.get(position).getHari_rilis(),
                             animepediaItems.get(position).getGambar(),
-                            animepediaItems.get(position).getVideo(),
-                            animepediaItems.get(position).getDeskripsi(),
                             animepediaItems.get(position).getBanner(),
-                            animepediaItems.get(position).getEpisode(),
-                            animepediaItems.get(position).getDeskripsi_eps()
+                            animepediaItems.get(position).getDeskripsi()
 
                     );
 

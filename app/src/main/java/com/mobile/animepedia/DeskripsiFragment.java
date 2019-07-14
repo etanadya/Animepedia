@@ -11,14 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.codesgood.views.JustifiedTextView;
+
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class DeskripsiFragment extends Fragment {
-    JustifiedTextView tvdes;
+    TextView tvdes;
     public static DeskripsiFragment newInstance() {
         return new DeskripsiFragment();
     }

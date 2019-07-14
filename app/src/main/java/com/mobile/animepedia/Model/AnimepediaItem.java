@@ -4,64 +4,17 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class AnimepediaItem implements Parcelable  {
-    String id, judul,genre,hari_rilis,gambar,video,deskripsi,banner,episode,deskripsi_eps;
+    String id, judul,genre,hari_rilis,gambar,banner,deskripsi;
 
-    public AnimepediaItem(String id, String judul, String genre, String hari_rilis, String gambar, String video, String deskripsi, String banner, String episode, String deskripsi_eps) {
+    public AnimepediaItem(String id, String judul, String genre, String hari_rilis, String gambar, String banner, String deskripsi) {
         this.id = id;
         this.judul = judul;
         this.genre = genre;
         this.hari_rilis = hari_rilis;
         this.gambar = gambar;
-        this.video = video;
-        this.deskripsi = deskripsi;
         this.banner = banner;
-        this.episode = episode;
-        this.deskripsi_eps = deskripsi_eps;
+        this.deskripsi = deskripsi;
     }
-
-    protected AnimepediaItem(Parcel in) {
-        id = in.readString();
-        judul = in.readString();
-        genre = in.readString();
-        hari_rilis = in.readString();
-        gambar = in.readString();
-        video = in.readString();
-        deskripsi = in.readString();
-        banner = in.readString();
-        episode = in.readString();
-        deskripsi_eps = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
-        dest.writeString(judul);
-        dest.writeString(genre);
-        dest.writeString(hari_rilis);
-        dest.writeString(gambar);
-        dest.writeString(video);
-        dest.writeString(deskripsi);
-        dest.writeString(banner);
-        dest.writeString(episode);
-        dest.writeString(deskripsi_eps);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<AnimepediaItem> CREATOR = new Creator<AnimepediaItem>() {
-        @Override
-        public AnimepediaItem createFromParcel(Parcel in) {
-            return new AnimepediaItem(in);
-        }
-
-        @Override
-        public AnimepediaItem[] newArray(int size) {
-            return new AnimepediaItem[size];
-        }
-    };
 
     public String getId() {
         return id;
@@ -103,12 +56,12 @@ public class AnimepediaItem implements Parcelable  {
         this.gambar = gambar;
     }
 
-    public String getVideo() {
-        return video;
+    public String getBanner() {
+        return banner;
     }
 
-    public void setVideo(String video) {
-        this.video = video;
+    public void setBanner(String banner) {
+        this.banner = banner;
     }
 
     public String getDeskripsi() {
@@ -119,27 +72,41 @@ public class AnimepediaItem implements Parcelable  {
         this.deskripsi = deskripsi;
     }
 
-    public String getBanner() {
-        return banner;
+    protected AnimepediaItem(Parcel in) {
+        id = in.readString();
+        judul = in.readString();
+        genre = in.readString();
+        hari_rilis = in.readString();
+        gambar = in.readString();
+        banner = in.readString();
+        deskripsi = in.readString();
     }
 
-    public void setBanner(String banner) {
-        this.banner = banner;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(judul);
+        dest.writeString(genre);
+        dest.writeString(hari_rilis);
+        dest.writeString(gambar);
+        dest.writeString(banner);
+        dest.writeString(deskripsi);
     }
 
-    public String getEpisode() {
-        return episode;
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public void setEpisode(String episode) {
-        this.episode = episode;
-    }
+    public static final Creator<AnimepediaItem> CREATOR = new Creator<AnimepediaItem>() {
+        @Override
+        public AnimepediaItem createFromParcel(Parcel in) {
+            return new AnimepediaItem(in);
+        }
 
-    public String getDeskripsi_eps() {
-        return deskripsi_eps;
-    }
-
-    public void setDeskripsi_eps(String deskripsi_eps) {
-        this.deskripsi_eps = deskripsi_eps;
-    }
+        @Override
+        public AnimepediaItem[] newArray(int size) {
+            return new AnimepediaItem[size];
+        }
+    };
 }

@@ -53,14 +53,16 @@ public class LinkDownloadAdapter extends RecyclerView.Adapter<LinkDownloadAdapte
 
     @Override
     public void onBindViewHolder(@NonNull LinkViewHolder linkViewHolder,int i) {
+        final DetailDownloadActivity detailDownloadActivity = new DetailDownloadActivity();
+
         linkViewHolder.tvLink.setText(getLinkDownloadItems().get(i).getNama_link());
         linkViewHolder.btnLink.setOnClickListener(new CustomOnItemClickListener(i, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemCLicked(View view, int position) {
-//                Intent browserIntent = new Intent(Intent.ACTION_VIEW);
-//                browserIntent.setData(Uri.parse(getLinkDownloadItems().get(position).getLink_download()));
-//                context.startActivity(browserIntent);
-                Toast.makeText(context,getLinkDownloadItems().get(position).getLink_download(),Toast.LENGTH_SHORT).show();
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW);
+                browserIntent.setData(Uri.parse(getLinkDownloadItems().get(position).getLink_download()+detailDownloadActivity.EXTRA_JUDUL+" "+detailDownloadActivity.EXTRA_SUB_JUDUL));
+                context.startActivity(browserIntent);
+                Toast.makeText(context,getLinkDownloadItems().get(position).getLink_download()+detailDownloadActivity.EXTRA_JUDUL,Toast.LENGTH_SHORT).show();
             }
         }));
     }
