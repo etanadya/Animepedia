@@ -10,8 +10,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.mobile.animepedia.Api.AnimepediaApi;
-import com.mobile.animepedia.MainActivity;
 import com.mobile.animepedia.Model.AnimepediaItem;
+import com.mobile.animepedia.Model.LinkDownloadItem;
 import com.mobile.animepedia.View.MainView;
 
 import org.json.JSONArray;
@@ -19,18 +19,11 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class HomePresenter {
+public class LinkDownloadPresenter {
     MainView view;
     StringRequest stringRequest;
     AnimepediaApi animepediaApi;
     Context context;
-
-
-    public HomePresenter(MainView view, AnimepediaApi animepediaApi, Context context) {
-        this.view = view;
-        this.animepediaApi = animepediaApi;
-        this.context = context;
-    }
 
     public MainView getView() {
         return view;
@@ -38,14 +31,6 @@ public class HomePresenter {
 
     public void setView(MainView view) {
         this.view = view;
-    }
-
-    public StringRequest getStringRequest() {
-        return stringRequest;
-    }
-
-    public void setStringRequest(StringRequest stringRequest) {
-        this.stringRequest = stringRequest;
     }
 
     public AnimepediaApi getAnimepediaApi() {
@@ -64,41 +49,36 @@ public class HomePresenter {
         this.context = context;
     }
 
-
-
-    public void LoadAnimepedia() {
-        String URL = animepediaApi.getLeague();
-        final ArrayList<AnimepediaItem> animepediaItems = new ArrayList<>();
+    public LinkDownloadPresenter(MainView view, AnimepediaApi animepediaApi, Context context) {
+        this.view = view;
+        this.animepediaApi = animepediaApi;
+        this.context = context;
+    }
+    public void LoadLink() {
+        String URL = animepediaApi.getLinkDownload();
+        final ArrayList<LinkDownloadItem> linkDownloadItems = new ArrayList<>();
 
         StringRequest stringRequest = new StringRequest( Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject object = new JSONObject( response );
-                    JSONArray animepediaArray = object.getJSONArray( "animepedia" );
-                    for (int i = 0; i < animepediaArray.length(); i++) {
-                        JSONObject animepediaObject = animepediaArray.getJSONObject( i );
-                        AnimepediaItem animepediaItem = new AnimepediaItem(
-                                animepediaObject.getString( "id" ),
-                                animepediaObject.getString( "judul" ),
-                                animepediaObject.getString( "genre" ),
-                                animepediaObject.getString( "hari_rilis" ),
-                                animepediaObject.getString( "gambar" ),
-                                animepediaObject.getString( "video" ),
-                                animepediaObject.getString( "deskripsi" ),
-                                animepediaObject.getString( "banner" ),
-                                animepediaObject.getString( "episode" ),
-                                animepediaObject.getString( "deskripsi_eps" )
+                    JSONArray linkArray = object.getJSONArray( "link_download_anime" );
+                    for (int i = 0; i < linkArray.length(); i++) {
+                        JSONObject linkObject = linkArray.getJSONObject( i );
+                        LinkDownloadItem linkDownloadItem = new LinkDownloadItem(
+                                linkObject.getString( "id" ),
+                                linkObject.getString( "nama_link" ),
+                                linkObject.getString( "link_download" )
 
+                        );
 
-                               );
-
-                        animepediaItems.add( animepediaItem );
+                        linkDownloadItems.add( linkDownloadItem );
 
                     }
 
 
-                    view.showAnimepedia( animepediaItems );
+                    view.showLink( linkDownloadItems );
 
                 } catch (Exception e) {
                     e.printStackTrace();

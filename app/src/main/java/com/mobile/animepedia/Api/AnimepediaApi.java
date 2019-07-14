@@ -14,4 +14,10 @@ public class AnimepediaApi {
 
         return List;
     }
+    public String getLinkDownload() {
+        String link = "download/link_download_anime.php";
+        String LinkDownload = BuildConfig.SERVER + link ;
+
+        return LinkDownload;
+    }
 }

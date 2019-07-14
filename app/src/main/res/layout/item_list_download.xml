@@ -20,6 +20,7 @@
             android:layout_toEndOf="@id/tv_link"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="open"
             android:layout_weight="0.7"/>
 
         

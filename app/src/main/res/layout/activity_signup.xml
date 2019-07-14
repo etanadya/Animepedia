@@ -71,6 +71,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorWhite"
                     android:hint="Tanggal Lahir"
+                    android:editable="false"
                     android:textColorHint="@color/colorWhite" />
             </TableRow>
         </TableLayout>

@@ -4,9 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class AnimepediaItem implements Parcelable  {
-    String id, judul,genre,hari_rilis,gambar,video,deskripsi,banner,episode;
+    String id, judul,genre,hari_rilis,gambar,video,deskripsi,banner,episode,deskripsi_eps;
 
-    public AnimepediaItem(String id, String judul, String genre, String hari_rilis, String gambar, String video, String deskripsi, String banner, String episode) {
+    public AnimepediaItem(String id, String judul, String genre, String hari_rilis, String gambar, String video, String deskripsi, String banner, String episode, String deskripsi_eps) {
         this.id = id;
         this.judul = judul;
         this.genre = genre;
@@ -16,6 +16,7 @@ public class AnimepediaItem implements Parcelable  {
         this.deskripsi = deskripsi;
         this.banner = banner;
         this.episode = episode;
+        this.deskripsi_eps = deskripsi_eps;
     }
 
     protected AnimepediaItem(Parcel in) {
@@ -28,6 +29,26 @@ public class AnimepediaItem implements Parcelable  {
         deskripsi = in.readString();
         banner = in.readString();
         episode = in.readString();
+        deskripsi_eps = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(judul);
+        dest.writeString(genre);
+        dest.writeString(hari_rilis);
+        dest.writeString(gambar);
+        dest.writeString(video);
+        dest.writeString(deskripsi);
+        dest.writeString(banner);
+        dest.writeString(episode);
+        dest.writeString(deskripsi_eps);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<AnimepediaItem> CREATOR = new Creator<AnimepediaItem>() {
@@ -114,21 +135,11 @@ public class AnimepediaItem implements Parcelable  {
         this.episode = episode;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getDeskripsi_eps() {
+        return deskripsi_eps;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
-        dest.writeString(judul);
-        dest.writeString(genre);
-        dest.writeString(hari_rilis);
-        dest.writeString(gambar);
-        dest.writeString(video);
-        dest.writeString(deskripsi);
-        dest.writeString(banner);
-        dest.writeString(episode);
+    public void setDeskripsi_eps(String deskripsi_eps) {
+        this.deskripsi_eps = deskripsi_eps;
     }
 }

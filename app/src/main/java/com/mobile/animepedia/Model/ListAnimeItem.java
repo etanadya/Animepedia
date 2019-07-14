@@ -5,9 +5,9 @@ import android.os.Parcelable;
 
 public class ListAnimeItem implements Parcelable {
 
-    String id,judul,sub_judul,episode,genre,hari_rilis,gambar,banner,video;
+    String id,judul,sub_judul,episode,genre,hari_rilis,gambar,banner,video,deskripsi,deskripsi_eps;
 
-    public ListAnimeItem(String id, String judul, String sub_judul, String episode, String genre, String hari_rilis, String gambar, String banner, String video) {
+    public ListAnimeItem(String id, String judul, String sub_judul, String episode, String genre, String hari_rilis, String gambar, String banner, String video, String deskripsi, String deskripsi_eps) {
         this.id = id;
         this.judul = judul;
         this.sub_judul = sub_judul;
@@ -17,6 +17,8 @@ public class ListAnimeItem implements Parcelable {
         this.gambar = gambar;
         this.banner = banner;
         this.video = video;
+        this.deskripsi = deskripsi;
+        this.deskripsi_eps = deskripsi_eps;
     }
 
     protected ListAnimeItem(Parcel in) {
@@ -29,6 +31,8 @@ public class ListAnimeItem implements Parcelable {
         gambar = in.readString();
         banner = in.readString();
         video = in.readString();
+        deskripsi = in.readString();
+        deskripsi_eps = in.readString();
     }
 
     public static final Creator<ListAnimeItem> CREATOR = new Creator<ListAnimeItem>() {
@@ -115,6 +119,22 @@ public class ListAnimeItem implements Parcelable {
         this.video = video;
     }
 
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+    }
+
+    public String getDeskripsi_eps() {
+        return deskripsi_eps;
+    }
+
+    public void setDeskripsi_eps(String deskripsi_eps) {
+        this.deskripsi_eps = deskripsi_eps;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -131,5 +151,7 @@ public class ListAnimeItem implements Parcelable {
         dest.writeString(gambar);
         dest.writeString(banner);
         dest.writeString(video);
+        dest.writeString(deskripsi);
+        dest.writeString(deskripsi_eps);
     }
 }

@@ -1,5 +1,6 @@
 package com.mobile.animepedia;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
@@ -9,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -25,7 +27,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
@@ -34,12 +39,13 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     private Button btnGotoLogin, btnSignup;
     private FirebaseAuth auth;
     private ProgressBar progressBar;
-    final String urlAdd = "http://cucusadewa0294belajar.000webhostapp.com/animepedia/api/user/insert_user.php";
+    final String urlAdd = "http://3jnc.tech/animepedia/api/user/data_user.php";
     private static final String TAG = MainActivity.class.getSimpleName();
-    private static final String TAG_SUCCESS = "success";
+    private static final String     TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
     int success;
     String tag_json_obj = "json_obj_req";
+    final Calendar myCalendar = Calendar.getInstance();
 
     TextView textView;
 
@@ -61,11 +67,38 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         btnGotoLogin.setOnClickListener(this);
         progressBar = findViewById(R.id.progressBar);
 
-
-
         auth = FirebaseAuth.getInstance();
 
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                // TODO Auto-generated method stub
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel();
+            }
+
+        };
+        edtTglLahir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(SignupActivity.this, date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        
+        });
+
+    }
+
+    private void updateLabel() {
+        String myFormat = "MM/dd/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        edtTglLahir.setText(sdf.format(myCalendar.getTime()));
     }
 
     @Override
@@ -73,7 +106,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()) {
             case R.id.btn_signup:
                 Toast.makeText(this, "Ok", Toast.LENGTH_SHORT).show();
-//                Signup();
+                Signup();
                 Adduser();
 
                 break;
@@ -152,7 +185,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
                     // Cek error node pada json
                     if (success == 1) {
-                        Log.d("Add/update", jObj.toString());
+                        Log.d("Add", jObj.toString());
 
 
                         Toast.makeText(SignupActivity.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
@@ -182,10 +215,10 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 // jika id kosong maka simpan, jika id ada nilainya maka update
 
                 params.put("nama", nama);
-                params.put("ttl", tgl_lahir);
-                params.put("tempat", tempat_lahir);
+                params.put("tgl_lahir", tgl_lahir);
+//                params.put("tempat", tempat_lahir);
                 params.put("email", email);
-                params.put("password", pwd);
+                params.put("pwd", pwd);
 
 
                 return params;

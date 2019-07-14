@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.mobile.animepedia.Adapter.HomeAdapter;
 import com.mobile.animepedia.Api.AnimepediaApi;
 import com.mobile.animepedia.Model.AnimepediaItem;
+import com.mobile.animepedia.Model.LinkDownloadItem;
 import com.mobile.animepedia.Model.ListAnimeItem;
 import com.mobile.animepedia.OnclickLibrary.ItemClickSupport;
 import com.mobile.animepedia.Presenter.HomePresenter;
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private FirebaseAuth.AuthStateListener authListener;
     RecyclerView rvHome;
 
+
     HomePresenter homePresenter;
     HomeAdapter homeAdapter;
     AnimepediaApi animepediaApi;
@@ -39,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
         setContentView(R.layout.activity_main);
         rvHome = findViewById(R.id.rv_list_beranda);
         auth = FirebaseAuth.getInstance();
-
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -123,7 +123,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
                             animepediaItems.get(position).getVideo(),
                             animepediaItems.get(position).getDeskripsi(),
                             animepediaItems.get(position).getBanner(),
-                            animepediaItems.get(position).getEpisode()
+                            animepediaItems.get(position).getEpisode(),
+                            animepediaItems.get(position).getDeskripsi_eps()
+
                     );
 
                     intentDetail.putExtra("animepedia", animepediaItem);
@@ -138,4 +140,13 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     }
 
+    @Override
+    public void showSearchEps(ArrayList<ListAnimeItem> listAnimeItems) {
+
+    }
+
+    @Override
+    public void showLink(ArrayList<LinkDownloadItem> linkDownloadItems) {
+
+    }
 }
