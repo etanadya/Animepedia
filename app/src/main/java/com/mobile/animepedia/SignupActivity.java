@@ -33,14 +33,17 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import es.dmoral.toasty.Toasty;
+
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
-    TextInputLayout edtEmailSignup, edtPasswordSignup, edtNameSignup;
+    TextInputLayout edtEmailSignup, edtPasswordSignup, edtNameSignup, edtRePassword;
     EditText edtTglLahir, edtTempatLahir;
     private Button btnGotoLogin, btnSignup;
     private FirebaseAuth auth;
     private ProgressBar progressBar;
-    final String urlAdd = "http://3jnc.tech/animepedia/api/user/data_user.php";
-    private static final String TAG = MainActivity.class.getSimpleName();
+    final String urlAdd = "http://3jnc.tech/animepedia/api/user/insert_user.php";
+//    final String urlAdd = "http://192.168.43.18/animepedia/insert_user.php";
+    private static final String TAG = SignupActivity.class.getSimpleName();
     private static final String     TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
     int success;
@@ -56,9 +59,10 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
         textView = findViewById(R.id.tv);
 
-        edtNameSignup = findViewById(R.id.edt_name);
-        edtTempatLahir = findViewById(R.id.edt_tempatSignup);
-        edtTglLahir = findViewById(R.id.edt_ttl);
+//        edtNameSignup = findViewById(R.id.edt_name);
+//        edtTempatLahir = findViewById(R.id.edt_tempatSignup);
+//        edtTglLahir = findViewById(R.id.edt_ttl);
+        edtRePassword = findViewById(R.id.edt_RepassSignup);
         edtEmailSignup = findViewById(R.id.edt_emailSignup);
         edtPasswordSignup = findViewById(R.id.edt_passSignup);
         btnSignup = findViewById(R.id.btn_signup);
@@ -69,33 +73,33 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
         auth = FirebaseAuth.getInstance();
 
-        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                  int dayOfMonth) {
-                // TODO Auto-generated method stub
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH, monthOfYear);
-                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                updateLabel();
-            }
-
-        };
-        edtTglLahir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new DatePickerDialog(SignupActivity.this, date, myCalendar
-                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        
-        });
+//        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+//
+//            @Override
+//            public void onDateSet(DatePicker view, int year, int monthOfYear,
+//                                  int dayOfMonth) {
+//                // TODO Auto-generated method stub
+//                myCalendar.set(Calendar.YEAR, year);
+//                myCalendar.set(Calendar.MONTH, monthOfYear);
+//                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+//                updateLabel();
+//            }
+//
+//        };
+//        edtTglLahir.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                new DatePickerDialog(SignupActivity.this, date, myCalendar
+//                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+//                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+//            }
+//
+//        });
 
     }
 
     private void updateLabel() {
-        String myFormat = "MM/dd/yy"; //In which you need put here
+        String myFormat = "dd-MM-yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         edtTglLahir.setText(sdf.format(myCalendar.getTime()));
@@ -105,9 +109,9 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_signup:
-                Toast.makeText(this, "Ok", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Ok", Toast.LENGTH_SHORT).show();
                 Signup();
-                Adduser();
+//                Adduser();
 
                 break;
             case R.id.btn_gotologin:
@@ -121,7 +125,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     public void Signup() {
         String email = edtEmailSignup.getEditText().getText().toString().trim();
         String password = edtPasswordSignup.getEditText().getText().toString().trim();
-
+        String rePassword = edtRePassword.getEditText().getText().toString().trim();
+//        String pass = null;
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
             return;
@@ -136,26 +141,45 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
             return;
         }
+        if (TextUtils.isEmpty(rePassword)) {
+            Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        progressBar.setVisibility(View.VISIBLE);
-        //create user
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(SignupActivity.this, new OnCompleteListener() {
-                    @Override
-                    public void onComplete(@NonNull Task task) {
-                        Toast.makeText(SignupActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+        if (rePassword.length() < 6) {
+            Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-                        progressBar.setVisibility(View.GONE);
+        if (password.equals(rePassword)){
+            String pass = password;
+            progressBar.setVisibility(View.VISIBLE);
+            //create user
+            auth.createUserWithEmailAndPassword(email, pass)
+                    .addOnCompleteListener(SignupActivity.this, new OnCompleteListener() {
+                        @Override
+                        public void onComplete(@NonNull Task task) {
+                            Toasty.success(SignupActivity.this, "Sign Up Success : " + task.isSuccessful(), Toast.LENGTH_SHORT).show();
 
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
-                            startActivity(new Intent(SignupActivity.this, MainActivity.class));
-                            finish();
+                            progressBar.setVisibility(View.GONE);
+
+                            if (!task.isSuccessful()) {
+                                Toasty.error(SignupActivity.this, "Authentication failed." + task.getException(),
+                                        Toast.LENGTH_SHORT).show();
+                            } else {
+                                startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                                Toasty.success(SignupActivity.this,"Succes Login",Toasty.LENGTH_SHORT).show();
+
+                                finish();
+                            }
                         }
-                    }
-                });
+                    });
+
+        }else {
+            Toasty.error(getApplicationContext(), "Password no match", Toast.LENGTH_SHORT).show();
+
+        }
+
 
     }
 
@@ -173,7 +197,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         final String email = edtEmailSignup.getEditText().getText().toString().trim();
         final String pwd = edtPasswordSignup.getEditText().getText().toString().trim();
 
-        StringRequest strReq = new StringRequest(Request.Method.POST, urlAdd, new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Request.Method.POST , urlAdd, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -216,7 +240,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
                 params.put("nama", nama);
                 params.put("tgl_lahir", tgl_lahir);
-//                params.put("tempat", tempat_lahir);
                 params.put("email", email);
                 params.put("pwd", pwd);
 

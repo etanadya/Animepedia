@@ -24,6 +24,8 @@ import com.mobile.animepedia.View.MainView;
 
 import java.util.ArrayList;
 
+import es.dmoral.toasty.Toasty;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -102,7 +104,7 @@ public class DownloadFragment extends Fragment implements MainView {
                 );
                 intent.putExtra("datalist",listAnimeItem);
                 startActivity(intent);
-                Toast.makeText(getContext(), "ok", Toast.LENGTH_SHORT).show();
+                Toasty.normal(getContext(), listAnimeItem.getEpisode(), Toast.LENGTH_SHORT).show();
 
             }
         });

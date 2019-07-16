@@ -19,6 +19,8 @@ import com.mobile.animepedia.R;
 
 import java.util.ArrayList;
 
+import es.dmoral.toasty.Toasty;
+
 public class LinkDownloadAdapter extends RecyclerView.Adapter<LinkDownloadAdapter.LinkViewHolder> {
     private ArrayList<LinkDownloadItem>linkDownloadItems = new ArrayList<>();
     public Context context;
@@ -62,7 +64,7 @@ public class LinkDownloadAdapter extends RecyclerView.Adapter<LinkDownloadAdapte
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW);
                 browserIntent.setData(Uri.parse(getLinkDownloadItems().get(position).getLink_download()+detailDownloadActivity.EXTRA_JUDUL+" "+detailDownloadActivity.EXTRA_SUB_JUDUL));
                 context.startActivity(browserIntent);
-                Toast.makeText(context,getLinkDownloadItems().get(position).getLink_download()+detailDownloadActivity.EXTRA_JUDUL,Toast.LENGTH_SHORT).show();
+                Toasty.info(context, getLinkDownloadItems().get(position).getLink_download() + detailDownloadActivity.EXTRA_JUDUL, Toast.LENGTH_SHORT).show();
             }
         }));
     }
