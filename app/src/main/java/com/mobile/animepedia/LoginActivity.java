@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+import es.dmoral.toasty.Toasty;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private TextInputLayout edtEmailLogin,edtPasswordLogin;
     private Button btnLogin, btnGotoSigniup;
@@ -49,7 +51,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()){
             case R.id.btn_login:
                 Signin();
-                Toast.makeText(LoginActivity.this,"succes",Toast.LENGTH_SHORT).show();
+
                 break;
             case R.id.btn_gotoregister:
                 Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
@@ -62,12 +64,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String email = edtEmailLogin.getEditText().getText().toString();
         final String password = edtPasswordLogin.getEditText().getText().toString();
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+            Toasty.info(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (TextUtils.isEmpty(password)) {
-            Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+            Toasty.info(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -84,11 +86,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             if (password.length() < 6) {
                                 edtPasswordLogin.setError(getString(R.string.minimum_password));
                             } else {
-                                Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
+                                Toasty.error(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                             }
                         } else {
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
+                            Toasty.success(LoginActivity.this,"Succes Login",Toasty.LENGTH_SHORT).show();
                             finish();
                         }
                     }
