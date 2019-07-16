@@ -50,14 +50,17 @@
 
         <TextView
             android:id="@+id/tv_deskripsi_download"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="18sp"
             android:text="Deskripsi"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"/>
 
         <TextView
             android:textAlignment="center"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="LINK DOWNLOAD"
